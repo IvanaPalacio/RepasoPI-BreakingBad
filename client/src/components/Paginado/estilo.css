@@ -1,0 +1,15 @@
+.number {
+    background-color:rgba(0, 0, 0, 0.438);
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+.estilo{
+    display: grid;
+    padding: 2rem; 
+    grid-gap: 10px;
+    grid-template-columns: repeat(12, 50px);
+    font-family: 5px; 
+    justify-content: center;   
+}

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a42b86a0.chunk.css",
+    "main.js": "/static/js/main.ee5cc6cd.chunk.js",
+    "main.js.map": "/static/js/main.ee5cc6cd.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9b081f75.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9b081f75.js.map",
+    "static/js/2.4d28148c.chunk.js": "/static/js/2.4d28148c.chunk.js",
+    "static/js/2.4d28148c.chunk.js.map": "/static/js/2.4d28148c.chunk.js.map",
+    "static/js/3.6b9683dc.chunk.js": "/static/js/3.6b9683dc.chunk.js",
+    "static/js/3.6b9683dc.chunk.js.map": "/static/js/3.6b9683dc.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.a42b86a0.chunk.css.map": "/static/css/main.a42b86a0.chunk.css.map",
+    "static/js/2.4d28148c.chunk.js.LICENSE.txt": "/static/js/2.4d28148c.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/breaking-bad-background-edit.2e542926.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9b081f75.js",
+    "static/js/2.4d28148c.chunk.js",
+    "static/css/main.a42b86a0.chunk.css",
+    "static/js/main.ee5cc6cd.chunk.js"
+  ]
+}
