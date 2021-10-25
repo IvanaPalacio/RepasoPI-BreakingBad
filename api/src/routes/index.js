@@ -22,7 +22,6 @@ const getApiInfo = async() =>{    //va a llamar al endpoint de la api y me va a 
             birthday: el.birthday,
             occupation: el.occupation.map(el => el),
             appearance: el.appearance.map(el => el),
-
         };
     });
     return apiInfo;
@@ -40,6 +39,7 @@ const getDbInfo = async () => {
         }
     });
 }
+
 //-----------------------------concateno info de la api y la db-------------------------------------
 const getAllCharacters = async () =>{
     const apiInfo = await getApiInfo();

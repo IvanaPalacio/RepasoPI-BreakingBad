@@ -12,8 +12,11 @@ function App() {
       <Switch> 
     <Route exact path = '/' component={LandingPage}/>
     <Route path = '/home' component={Home}/>
-    <Route path="/detail/:id" component={Detail} />
-    <Route path="/home/character" component={CharacterCreate} />
+    <Route path = '/character' component={CharacterCreate}/>
+    <Route path = '/home/:id' component={Detail}/>
+
+    {/* <Route path="/detail/:id" component={Detail} />
+    <Route path="/home/character" component={CharacterCreate} /> */}
       </Switch>
     </div>
     </BrowserRouter>

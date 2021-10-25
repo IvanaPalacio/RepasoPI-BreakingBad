@@ -1,16 +1,18 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { getCharacters, filterCharactersByStatus, filterCreated } from '../../actions';
+import { getCharacters, filterCharactersByStatus, filterCreated, orderByName } from '../../actions';
 import {Link} from 'react-router-dom';
 import Card from '../Card/Card';
 import Paginado from '../Paginado/Paginado';
+import SearchBar from '../SearchBar/SearchBar';
 
 export default function Home (){
     const dispatch = useDispatch();
     const allCharacters = useSelector((state) => state.characters) //con useSelector traeme en esa constante todo lo que esta en el estado de characters
     const [currentPage, setCurrentPage] = useState(1) //estados locales, quiero un estado con la pag actual y otra que me setee la pag actual
     const [characetersPerPage, setCharactersPerPage] = useState(6)
+    const [orden, setOrden] = useState('')
     const indexOfLastCharacter = currentPage * characetersPerPage  //
     const indexOfFirstCharacter = indexOfLastCharacter - characetersPerPage //
     const currentCharacters = allCharacters.slice(indexOfFirstCharacter,indexOfLastCharacter)
@@ -27,7 +29,14 @@ function handleClick(e){
 e.preventDefault(); //es preventivo pra que no se me rompa la página cuando se me recarga la página debido a que algo dependía de algo
 dispatch(getCharacters()); //me lo resetea, carga todos los personajes, sirve para cualdo se bugea
 
-}
+};
+
+function handleSort(e){
+    e.preventDefault();
+    dispatch(orderByName(e.target.value))
+    setCurrentPage(1);
+    setOrden(`Ordenado ${e.target.value}`)
+};
 
 function handleFilterStatus(e){
     dispatch(filterCharactersByStatus(e.target.value))
@@ -44,7 +53,7 @@ return (
         <div>
         <button onClick={e => {handleClick(e)}}>Volver a cargar todos los personajes</button>
         </div>
-        <select>
+        <select onChange={e=> handleSort(e)}>
             <option value = 'asc'>Ascendente</option>
             <option value = 'desc'>Descendente</option>
         </select>
@@ -66,13 +75,14 @@ return (
             allCharacters = {allCharacters.length}
             paginado = {paginado} 
         />
+        <SearchBar/>
     {currentCharacters?.map((c) => {
         return(
-        <div> 
+        <fragment className='cartas'> 
             <Link to = {'/home/' + c.id}>
-            <Card name={c.name} image={c.image} nickname={c.nickname} key={c.id}></Card>
+            <Card name={c.name} image={c.img ? c.img : c.image} nickname={c.nickname} key={c.id}></Card>
             </Link>
-        </div>
+        </fragment>
         )
     })}
     </div>
